@@ -8,7 +8,7 @@ namespace AddDeviceOnIotHub
     class Program
     {
         static RegistryManager registryManager;
-        static string connectionString = "HostName=electra.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=12AhxT0etW53dGg5l2O2fAmzSB08o6OCGZpAephLwC0=";
+        static string connectionString = "HostName=stpaulis.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=EhkZvkWkB+W7WYALjkHD5K5XYXnsEGMF7RMo4etWsIE=";
 
         static void Main(string[] args)
         {
