@@ -9,13 +9,13 @@ namespace SendCloud2Device
     class Program
     {
         static ServiceClient serviceClient;
-        static string connectionString = "HostName=electra.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=12AhxT0etW53dGg5l2O2fAmzSB08o6OCGZpAephLwC0=";
+        static string connectionString = "HostName=stpaulis.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=EhkZvkWkB+W7WYALjkHD5K5XYXnsEGMF7RMo4etWsIE=";
 
         private async static Task SendCloudToDeviceMessageAsync(string s)
         {
             var commandMessage = new Message(Encoding.ASCII.GetBytes(s));
             commandMessage.Ack = DeliveryAcknowledgement.Full;
-            await serviceClient.SendAsync("electra-iot-design.gr", commandMessage);
+            await serviceClient.SendAsync("ControlPowerWithAzure", commandMessage);
         }
 
         static void Main(string[] args)

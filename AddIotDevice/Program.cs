@@ -3,7 +3,7 @@ using Microsoft.Azure.Devices.Common.Exceptions;
 using System;
 using System.Threading.Tasks;
 
-namespace AddDeviceOnIotHub
+namespace AddIotDevice
 {
     class Program
     {
