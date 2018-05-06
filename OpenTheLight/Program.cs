@@ -1,17 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+﻿using System;
 using System.Threading.Tasks;
 using Unosquare.RaspberryIO;
 using Unosquare.RaspberryIO.Gpio;
-using Microsoft.Azure.Devices;
 using Microsoft.Azure.Devices.Client;
 using System.Text;
-using System.Threading;
 
 namespace OpenTheLight
 {
