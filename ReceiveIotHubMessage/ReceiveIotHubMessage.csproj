@@ -6,14 +6,8 @@
      <RuntimeIdentifiers>win8-arm;ubuntu.14.04-arm;ubuntu.16.04-arm</RuntimeIdentifiers>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Bifrost.Devices.Gpio" Version="0.0.2" />
-    <PackageReference Include="Bifrost.Devices.Gpio.Abstractions" Version="0.0.1" />
-    <PackageReference Include="Bifrost.Devices.Gpio.Core" Version="0.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.0-alpha1-final" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="1.0.0-alpha1-final" />
     <PackageReference Include="Microsoft.Azure.Devices" Version="1.5.1" />
     <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.6.2" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
-    <PackageReference Include="Unosquare.Raspberry.IO" Version="0.13.0" />
   </ItemGroup>
 </Project>
