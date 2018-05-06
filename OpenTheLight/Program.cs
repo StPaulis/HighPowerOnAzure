@@ -56,6 +56,7 @@ namespace OpenTheLight
 
                 await deviceClient.CompleteAsync(receivedMessage);
 
+                // Switch the Light
                 try
                 {
                     if (msg == "24")
