@@ -10,17 +10,20 @@ namespace SendCloud2Device
     {
         static ServiceClient serviceClient;
         static string connectionString = "HostName=stpaulis.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=EhkZvkWkB+W7WYALjkHD5K5XYXnsEGMF7RMo4etWsIE=";
-
-        static void Main(string[] args)
+        static string deviceId = "ControlPowerWithAzure";
+        static async Task Main(string[] args)
         {
+            
             Console.WriteLine("Send Cloud-to-Device message\n");
             serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
-            ReceiveFeedbackAsync();
+
+            await Task.Factory.StartNew(() => ReceiveFeedback());
+
             while (true)
             {
-                Console.WriteLine("Press any key to send a C2D message.");
+                Console.WriteLine("Press any key to send a message.");
                 var s = Console.ReadLine();
-                SendCloudToDeviceMessageAsync(s).Wait();
+                await SendCloudToDeviceMessageAsync(s);
             }
         }
 
@@ -28,10 +31,10 @@ namespace SendCloud2Device
         {
             var commandMessage = new Message(Encoding.ASCII.GetBytes(s));
             commandMessage.Ack = DeliveryAcknowledgement.Full;
-            await serviceClient.SendAsync("ControlPowerWithAzure", commandMessage);
+            await serviceClient.SendAsync(deviceId, commandMessage);
         }
 
-        private async static void ReceiveFeedbackAsync()
+        private async static void ReceiveFeedback()
         {
             var feedbackReceiver = serviceClient.GetFeedbackReceiver();
 

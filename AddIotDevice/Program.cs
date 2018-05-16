@@ -13,13 +13,17 @@ namespace AddIotDevice
         static void Main(string[] args)
         {
             registryManager = RegistryManager.CreateFromConnectionString(connectionString);
-            AddDeviceAsync().Wait();
-            Console.ReadLine();
+            string deviceId;
+            while (true)
+            {
+                Console.WriteLine("Enter the name for your new IoT Device");
+                deviceId = Console.ReadLine();
+                AddDeviceAsync(deviceId).Wait();
+            }
         }
 
-        private static async Task AddDeviceAsync()
+        private static async Task AddDeviceAsync(string deviceId)
         {
-            string deviceId = "ControlPowerWithAzure";
             Device device;
             try
             {

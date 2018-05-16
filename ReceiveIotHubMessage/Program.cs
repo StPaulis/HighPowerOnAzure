@@ -10,12 +10,15 @@ namespace OpenTheLight
         static DeviceClient deviceClient;
         static string iotHubUri = "stpaulis.azure-devices.net";
         static string deviceKey = "qk80e5DcuYSPeGO/Hik8PMDEVWtxeKRpDIP3RFUYYio=";
+        static string deviceId = "ControlPowerWithAzure";
 
         public static async Task Main()
         {
             // Authenticate device and set transport type
-            deviceClient = DeviceClient.Create(iotHubUri,
-             new DeviceAuthenticationWithRegistrySymmetricKey("ControlPowerWithAzure", deviceKey), Microsoft.Azure.Devices.Client.TransportType.Mqtt);
+            deviceClient = DeviceClient.Create(iotHubUri
+                , new DeviceAuthenticationWithRegistrySymmetricKey(deviceId, deviceKey)
+                , TransportType.Mqtt
+                );
             deviceClient.ProductInfo = "Electra";
 
             //Handle Receiving on another Thread
@@ -30,7 +33,7 @@ namespace OpenTheLight
             Console.WriteLine("\nReceiving messages from Azure");
             while (true)
             {
-                Microsoft.Azure.Devices.Client.Message receivedMessage = await deviceClient.ReceiveAsync();
+                Message receivedMessage = await deviceClient.ReceiveAsync();
                 if (receivedMessage == null) continue;
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
