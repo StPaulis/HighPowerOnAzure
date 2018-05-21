@@ -7,7 +7,7 @@ control high power (the software part...)
 
 ### Sample Code:
 #### - AddIotDevice (to IoT Hub)
-#### - OpenTheLight [Iot Device code: Publish for rasberry pi 3+:
+#### - OpenTheLight
 For rasberry pi 3+
 ````
 dotnet publish . -r ubuntu.16.04-arm
